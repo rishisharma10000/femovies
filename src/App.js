@@ -1,11 +1,11 @@
 import React from "react";
-import Search from "./Search";
+import Homepage from "./Homepage";
 import "./app.scss";
 
 function App() {
   return (
     <div>
-      <Search />
+      <Homepage />
     </div>
   );
 }

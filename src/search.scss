@@ -1,0 +1,15 @@
+.search {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.search-item {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 20px;
+}

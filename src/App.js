@@ -1,8 +1,12 @@
-import React from 'react';
+import React from "react";
+import Search from "./Search";
+import "./app.scss";
 
 function App() {
-    return (
-        <div>Hello World!</div>
-    );
+  return (
+    <div>
+      <Search />
+    </div>
+  );
 }
 export default App;

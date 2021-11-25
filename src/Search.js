@@ -5,15 +5,15 @@ import Results from "./Results";
 import "./search.scss";
 
 const Search = () => {
-  const [submit, setSubmit] = useState(false);
+  const [chosenMovie, setChosenMovie] = useState();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => setSubmit(true);
+  const onSubmit = (data) => setChosenMovie(data.movie);
 
-  const onClear = (data) => setSubmit(false);
+  const onClear = () => setChosenMovie("");
 
   return (
     <div className="search">
@@ -35,7 +35,7 @@ const Search = () => {
           <button type="submit">Clear</button>
         </div>
       </form>
-      {submit && <Results />}
+      {chosenMovie && <Results chosenMovie={chosenMovie} />}
     </div>
   );
 };

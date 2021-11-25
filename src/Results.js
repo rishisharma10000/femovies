@@ -4,8 +4,8 @@ import "./results.scss";
 import MovieCard from "./MovieCard";
 import ReactPaginate from "react-paginate";
 
-const Results = () => {
-  const [movies, isLoading, error] = useMovieApi();
+const Results = ({ chosenMovie }) => {
+  const [movies, isLoading, error] = useMovieApi(chosenMovie);
   const [currentPage, setCurrentPage] = useState(1);
   const [moviesPerPage] = useState(4);
 
@@ -16,7 +16,7 @@ const Results = () => {
   const lastmovie = currentPage * moviesPerPage;
   const firstmovie = lastmovie - moviesPerPage;
   const currentmovies = movies && movies.slice(firstmovie, lastmovie);
-
+  console.log("MOVIES", movies);
   return (
     <div className="results__container">
       <div className="results__header"></div>

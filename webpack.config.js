@@ -1,5 +1,8 @@
 var path = require("path");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
+const webpack = require("webpack");
+const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
+const Dotenv = require("dotenv-webpack");
 
 module.exports = {
   entry: "./src/index.js",
@@ -7,6 +10,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "index_bundle.js",
   },
+
   module: {
     rules: [
       {
@@ -29,8 +33,17 @@ module.exports = {
   },
   mode: "development",
   plugins: [
+    new NodePolyfillPlugin(),
+    new Dotenv(),
+
     new HtmlWebpackPlugin({
       template: "src/index.html",
+    }),
+    new webpack.ProvidePlugin({
+      process: "process/browser",
+    }),
+    new webpack.DefinePlugin({
+      REACT_APP_TOKEN: JSON.stringify(process.env.REACT_APP_TOKEN),
     }),
   ],
 };

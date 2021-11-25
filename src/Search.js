@@ -1,15 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useMovieApi } from "./hooks";
+import Results from "./Results";
 import "./search.scss";
 
 const Search = () => {
+  const [submit, setSubmit] = useState(false);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => setSubmit(true);
+
+  const onClear = (data) => setSubmit(false);
 
   return (
     <div className="search">
@@ -26,6 +30,12 @@ const Search = () => {
           <input type="submit" />
         </div>
       </form>
+      <form onSubmit={handleSubmit(onClear)}>
+        <div className="search-item">
+          <button type="submit">Clear</button>
+        </div>
+      </form>
+      {submit && <Results />}
     </div>
   );
 };

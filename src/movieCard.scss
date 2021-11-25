@@ -1,0 +1,13 @@
+.movieCard {
+  display: flex;
+  flex-direction: column;
+}
+
+.movieCard__textHeading {
+  margin-top: 50px;
+}
+
+.movieCard_textHeadingTitle {
+  font-weight: bold;
+  font-style: italic;
+}

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
 export const useMovieApi = (data) => {
-  console.log("HELLO", data);
   const [movies, setMovies] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setIsError] = useState(false);

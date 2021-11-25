@@ -16,7 +16,7 @@ const Results = ({ chosenMovie }) => {
   const lastmovie = currentPage * moviesPerPage;
   const firstmovie = lastmovie - moviesPerPage;
   const currentmovies = movies && movies.slice(firstmovie, lastmovie);
-  console.log("MOVIES", movies);
+
   return (
     <div className="results__container">
       <div className="results__header"></div>
